@@ -12,6 +12,7 @@ import pessoaFeliz from './assets/pessoa_feliz_financas.jpg'
 import casalOrganizando from './assets/casal_organizando_financas.jpg'
 import calculadoraDinheiro from './assets/calculadora_dinheiro.jpg'
 import calculadoraNotas from './assets/calculadora_notas.jpg'
+import ebookGranaFlash from './assets/ebook_grana_flash.png'
 
 function App() {
   const [email, setEmail] = useState('')
@@ -113,17 +114,19 @@ function App() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <img 
-                src={pessoaFeliz} 
-                alt="Pessoa feliz organizando finanças" 
-                className="rounded-2xl shadow-2xl w-full max-w-md mx-auto"
-              />
-              <div className="absolute -bottom-6 -left-6 bg-white text-green-800 p-4 rounded-xl shadow-lg">
-                <div className="flex items-center gap-2">
-                  <TrendingUp className="h-6 w-6 text-green-600" />
-                  <div>
-                    <div className="font-bold">Resultados em 7 dias</div>
-                    <div className="text-sm text-gray-600">Método comprovado</div>
+              <div className="relative max-w-md mx-auto">
+                <img 
+                  src={ebookGranaFlash} 
+                  alt="E-book Organize suas Finanças em 7 Dias" 
+                  className="w-full h-auto drop-shadow-2xl transform hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute -bottom-6 -left-6 bg-white text-green-800 p-4 rounded-xl shadow-lg">
+                  <div className="flex items-center gap-2">
+                    <TrendingUp className="h-6 w-6 text-green-600" />
+                    <div>
+                      <div className="font-bold">Resultados em 7 dias</div>
+                      <div className="text-sm text-gray-600">Método comprovado</div>
+                    </div>
                   </div>
                 </div>
               </div>
