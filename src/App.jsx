@@ -62,25 +62,29 @@ function App() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative container mx-auto px-4 py-20 lg:py-32">
+        {/* CORREÇÃO: Ajustado padding para mobile (py-16 ) e desktop (lg:py-32) */}
+        <div className="relative container mx-auto px-4 py-16 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div 
-              className="space-y-8"
+              className="space-y-6" // CORREÇÃO: Diminuído o espaçamento geral para mobile
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <Badge className="bg-yellow-400 text-yellow-900 text-sm font-semibold px-4 py-2">
+              <Badge className="bg-yellow-400 text-yellow-900 text-xs sm:text-sm font-semibold px-3 py-1 sm:px-4 sm:py-2"> {/* CORREÇÃO: Badge menor no mobile */}
                 ✨ Método Comprovado por Milhares de Pessoas
               </Badge>
               
+              {/* CORREÇÃO: Tamanho de fonte ajustado para mobile (text-4xl) e desktop (lg:text-6xl) */}
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
                 Pare de Ver Seu 
                 <span className="text-yellow-400"> Dinheiro Sumir</span> 
+                <br className="hidden sm:block" /> {/* CORREÇÃO: Adicionada quebra de linha para melhor leitura em telas maiores */}
                 Sem Saber Como
               </h1>
               
-              <p className="text-xl lg:text-2xl text-green-100 leading-relaxed">
+              {/* CORREÇÃO: Tamanho de fonte ajustado para mobile (text-lg) e desktop (lg:text-2xl) */}
+              <p className="text-lg lg:text-2xl text-green-100 leading-relaxed">
                 Descubra o método simples que já ajudou milhares de pessoas a organizarem suas finanças em apenas 
                 <span className="font-bold text-yellow-400"> 7 dias</span> - sem planilhas complicadas ou termos técnicos
               </p>
@@ -89,14 +93,16 @@ function App() {
                 <Button 
                   onClick={handleCTA}
                   size="lg" 
-                  className="bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  // CORREÇÃO: Ajustado tamanho do texto e padding para mobile e desktop
+                  className="bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-bold text-base sm:text-lg px-6 py-3 sm:px-8 sm:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 >
                   <Zap className="mr-2 h-5 w-5" />
-                  QUERO ORGANIZAR MINHAS FINANÇAS AGORA
+                  QUERO ORGANIZAR MINHAS FINANÇAS
                 </Button>
               </div>
               
-              <div className="flex items-center gap-6 text-sm">
+              {/* CORREÇÃO: Layout em coluna no mobile e em linha no desktop */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <Shield className="h-5 w-5 text-green-300" />
                   <span>Garantia de 7 dias</span>
@@ -109,7 +115,7 @@ function App() {
             </motion.div>
             
             <motion.div 
-              className="relative"
+              className="relative hidden lg:block" // CORREÇÃO: Escondido no mobile para não poluir a primeira tela
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -136,21 +142,23 @@ function App() {
       </section>
 
       {/* Seção de Dores */}
-      <section className="py-20 bg-white">
+      <section className="py-16 sm:py-20 bg-white"> {/* CORREÇÃO: Padding ajustado */}
         <div className="container mx-auto px-4">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
             {...fadeInUp}
           >
-            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
+            {/* CORREÇÃO: Tamanho de fonte ajustado */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
               Você se reconhece em alguma dessas situações?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            {/* CORREÇÃO: Tamanho de fonte ajustado */}
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
               Se você respondeu "sim" para pelo menos uma dessas situações, este método foi feito para você
             </p>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {[
               "O dinheiro some e você não sabe para onde foi",
               "As contas chegam e você sente um aperto no peito", 
@@ -164,12 +172,12 @@ function App() {
             ].map((dor, index) => (
               <motion.div
                 key={index}
-                className="flex items-start gap-4 p-6 bg-red-50 border-l-4 border-red-400 rounded-lg"
+                className="flex items-start gap-4 p-4 sm:p-6 bg-red-50 border-l-4 border-red-400 rounded-lg"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="text-red-500 text-2xl">😰</div>
+                <div className="text-xl sm:text-2xl">😰</div>
                 <p className="text-gray-800 font-medium">{dor}</p>
               </motion.div>
             ))}
@@ -191,17 +199,19 @@ function App() {
       </section>
 
       {/* Seção de Agitação */}
-      <section className="py-20 bg-gradient-to-r from-red-600 to-red-700 text-white">
+      <section className="py-16 sm:py-20 bg-gradient-to-r from-red-600 to-red-700 text-white">
         <div className="container mx-auto px-4">
           <motion.div 
             className="max-w-4xl mx-auto text-center"
             {...fadeInUp}
           >
-            <h2 className="text-3xl lg:text-5xl font-bold mb-8">
+            {/* CORREÇÃO: Tamanho de fonte ajustado */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8">
               A Verdade Que Ninguém Te Conta Sobre Dinheiro
             </h2>
             
-            <div className="space-y-6 text-lg lg:text-xl leading-relaxed">
+            {/* CORREÇÃO: Tamanho de fonte ajustado */}
+            <div className="space-y-6 text-md sm:text-lg lg:text-xl leading-relaxed">
               <p>
                 Enquanto você não souber exatamente para onde seu dinheiro está indo, 
                 <span className="font-bold text-yellow-300"> ele vai continuar sumindo</span>. 
@@ -219,8 +229,9 @@ function App() {
                 como fazer seu dinheiro durar até o fim do mês.
               </p>
               
-              <div className="bg-red-800 p-8 rounded-xl mt-8">
-                <p className="text-2xl font-bold text-yellow-300 mb-4">
+              <div className="bg-red-800 p-6 sm:p-8 rounded-xl mt-8">
+                {/* CORREÇÃO: Tamanho de fonte ajustado */}
+                <p className="text-xl sm:text-2xl font-bold text-yellow-300 mb-4">
                   ⏰ O tempo está passando...
                 </p>
                 <p>
@@ -234,22 +245,24 @@ function App() {
       </section>
 
       {/* Seção de Solução */}
-      <section className="py-20 bg-gradient-to-b from-green-50 to-white">
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-green-50 to-white">
         <div className="container mx-auto px-4">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
             {...fadeInUp}
           >
-            <Badge className="bg-green-600 text-white text-lg font-semibold px-6 py-3 mb-6">
+            <Badge className="bg-green-600 text-white text-md sm:text-lg font-semibold px-4 py-2 sm:px-6 sm:py-3 mb-6">
               🎯 A SOLUÇÃO QUE VOCÊ ESTAVA PROCURANDO
             </Badge>
             
-            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
+            {/* CORREÇÃO: Tamanho de fonte ajustado */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Finalmente, Um Método Que 
               <span className="text-green-600"> Funciona de Verdade</span>
             </h2>
             
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            {/* CORREÇÃO: Tamanho de fonte ajustado */}
+            <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Apresentamos o <span className="font-bold text-green-600">"Organize Suas Finanças em 7 Dias"</span> - 
               o método que já transformou a vida financeira de milhares de pessoas, sem complicação, 
               sem planilhas difíceis, sem termos técnicos.
@@ -270,12 +283,13 @@ function App() {
             </motion.div>
             
             <motion.div 
-              className="space-y-6"
+              className="space-y-4 sm:space-y-6"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-8">
+              {/* CORREÇÃO: Tamanho de fonte ajustado */}
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
                 Em apenas 7 dias, você vai:
               </h3>
               
@@ -296,7 +310,8 @@ function App() {
                   <div className="bg-green-100 p-2 rounded-full">
                     <item.icon className="h-6 w-6 text-green-600" />
                   </div>
-                  <p className="text-gray-800 font-medium text-lg">{item.text}</p>
+                  {/* CORREÇÃO: Tamanho de fonte ajustado */}
+                  <p className="text-gray-800 font-medium text-base sm:text-lg">{item.text}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -305,22 +320,24 @@ function App() {
       </section>
 
       {/* Seção dos 7 Dias */}
-      <section className="py-20 bg-white">
+      <section className="py-16 sm:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
             {...fadeInUp}
           >
-            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
+            {/* CORREÇÃO: Tamanho de fonte ajustado */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               O Que Você Vai Conseguir em Apenas 
               <span className="text-green-600"> 7 Dias</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            {/* CORREÇÃO: Tamanho de fonte ajustado */}
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
               Um passo por dia para transformar completamente sua relação com o dinheiro
             </p>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {[
               {
                 dia: "DIA 1",
@@ -373,9 +390,10 @@ function App() {
               >
                 <Card className="h-full hover:shadow-lg transition-shadow duration-300 border-2 hover:border-green-200">
                   <CardContent className="p-6">
-                    <div className="text-4xl mb-4">{item.icon}</div>
+                    <div className="text-3xl sm:text-4xl mb-4">{item.icon}</div>
                     <Badge className="bg-green-600 text-white mb-4">{item.dia}</Badge>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{item.titulo}</h3>
+                    {/* CORREÇÃO: Tamanho de fonte ajustado */}
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">{item.titulo}</h3>
                     <p className="text-gray-600 leading-relaxed">{item.descricao}</p>
                   </CardContent>
                 </Card>
@@ -386,21 +404,23 @@ function App() {
       </section>
 
       {/* Seção de Prova Social */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 sm:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
             {...fadeInUp}
           >
-            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
+            {/* CORREÇÃO: Tamanho de fonte ajustado */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Veja o Que Quem Já Aplicou o Método Está Dizendo
             </h2>
-            <p className="text-xl text-gray-600">
+            {/* CORREÇÃO: Tamanho de fonte ajustado */}
+            <p className="text-lg sm:text-xl text-gray-600">
               Mais de 10.000 pessoas já transformaram suas vidas financeiras
             </p>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {[
               {
                 nome: "Maria Silva",
@@ -448,37 +468,41 @@ function App() {
       </section>
 
       {/* Seção de Urgência */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600 text-white">
+      <section className="py-16 sm:py-20 bg-gradient-to-r from-orange-600 to-red-600 text-white">
         <div className="container mx-auto px-4">
           <motion.div 
             className="max-w-4xl mx-auto text-center"
             {...fadeInUp}
           >
-            <h2 className="text-3xl lg:text-5xl font-bold mb-8">
+            {/* CORREÇÃO: Tamanho de fonte ajustado */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8">
               Por Que Você Precisa Agir 
               <span className="text-yellow-300">HOJE</span>
             </h2>
             
-            <div className="space-y-6 text-lg lg:text-xl leading-relaxed">
+            {/* CORREÇÃO: Tamanho de fonte ajustado */}
+            <div className="space-y-6 text-md sm:text-lg lg:text-xl leading-relaxed">
               <p>
                 Cada dia que você adia essa decisão é mais dinheiro que vai embora sem você perceber. 
                 Enquanto você está lendo isso, provavelmente já gastou dinheiro em coisas que nem lembra.
               </p>
               
-              <div className="bg-red-800 p-8 rounded-xl">
+              <div className="bg-red-800 p-6 sm:p-8 rounded-xl">
                 <div className="flex items-center justify-center gap-4 mb-4">
                   <Clock className="h-8 w-8 text-yellow-300" />
-                  <p className="text-2xl font-bold text-yellow-300">
+                  {/* CORREÇÃO: Tamanho de fonte ajustado */}
+                  <p className="text-xl sm:text-2xl font-bold text-yellow-300">
                     Tempo é Dinheiro!
                   </p>
                 </div>
-                <p className="text-lg">
+                <p className="text-base sm:text-lg">
                   O método funciona, mas só se você aplicar. E quanto mais você esperar, 
                   mais difícil fica sair do buraco financeiro.
                 </p>
               </div>
               
-              <p className="text-2xl font-bold">
+              {/* CORREÇÃO: Tamanho de fonte ajustado */}
+              <p className="text-xl sm:text-2xl font-bold mt-8">
                 Não deixe para amanhã o que pode mudar sua vida hoje.
               </p>
             </div>
@@ -487,22 +511,24 @@ function App() {
       </section>
 
       {/* Seção de Garantia */}
-      <section className="py-20 bg-green-50">
+      <section className="py-16 sm:py-20 bg-green-50">
         <div className="container mx-auto px-4">
           <motion.div 
             className="max-w-4xl mx-auto text-center"
             {...fadeInUp}
           >
-            <div className="bg-white p-8 rounded-2xl shadow-xl border-4 border-green-200">
+            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border-4 border-green-200">
               <div className="flex items-center justify-center mb-6">
-                <Shield className="h-16 w-16 text-green-600" />
+                <Shield className="h-12 sm:h-16 w-12 sm:w-16 text-green-600" />
               </div>
               
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+              {/* CORREÇÃO: Tamanho de fonte ajustado */}
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
                 Garantia Total de Satisfação
               </h2>
               
-              <p className="text-xl text-gray-700 leading-relaxed mb-8">
+              {/* CORREÇÃO: Tamanho de fonte ajustado */}
+              <p className="text-lg sm:text-xl text-gray-700 leading-relaxed mb-8">
                 Estamos tão confiantes que o método vai funcionar para você que oferecemos 
                 <span className="font-bold text-green-600"> garantia total</span>. 
                 Se em 30 dias você não estiver satisfeito(a) com os resultados, 
@@ -510,7 +536,8 @@ function App() {
               </p>
               
               <div className="bg-green-100 p-6 rounded-xl">
-                <p className="text-lg font-semibold text-green-800">
+                {/* CORREÇÃO: Tamanho de fonte ajustado */}
+                <p className="text-base sm:text-lg font-semibold text-green-800">
                   Você não tem nada a perder, apenas uma vida financeira organizada para ganhar!
                 </p>
               </div>
@@ -520,36 +547,38 @@ function App() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-20 bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white">
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white">
         <div className="container mx-auto px-4">
           <motion.div 
             className="max-w-4xl mx-auto text-center"
             {...fadeInUp}
           >
-            <h2 className="text-3xl lg:text-5xl font-bold mb-8">
+            {/* CORREÇÃO: Tamanho de fonte ajustado */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8">
               Sua Nova Vida Financeira 
               <span className="text-yellow-400">Começa Agora</span>
             </h2>
             
-            <p className="text-xl lg:text-2xl text-green-100 mb-8 leading-relaxed">
+            {/* CORREÇÃO: Tamanho de fonte ajustado */}
+            <p className="text-lg sm:text-xl lg:text-2xl text-green-100 mb-8 leading-relaxed">
               Não espere mais. Sua situação financeira não vai se resolver sozinha. 
               Mas com o método certo, em apenas 7 dias você pode virar o jogo.
             </p>
             
-            <div className="bg-white/10 p-8 rounded-2xl mb-8">
+            <div className="bg-white/10 p-6 sm:p-8 rounded-2xl mb-8">
               <div className="grid md:grid-cols-3 gap-6 text-center">
                 <div>
-                  <DollarSign className="h-12 w-12 text-yellow-400 mx-auto mb-2" />
+                  <DollarSign className="h-10 sm:h-12 w-10 sm:w-12 text-yellow-400 mx-auto mb-2" />
                   <p className="font-bold">Método Simples</p>
                   <p className="text-sm text-green-200">Sem complicação</p>
                 </div>
                 <div>
-                  <Clock className="h-12 w-12 text-yellow-400 mx-auto mb-2" />
+                  <Clock className="h-10 sm:h-12 w-10 sm:w-12 text-yellow-400 mx-auto mb-2" />
                   <p className="font-bold">Apenas 7 Dias</p>
                   <p className="text-sm text-green-200">Resultados rápidos</p>
                 </div>
                 <div>
-                  <Shield className="h-12 w-12 text-yellow-400 mx-auto mb-2" />
+                  <Shield className="h-10 sm:h-12 w-10 sm:w-12 text-yellow-400 mx-auto mb-2" />
                   <p className="font-bold">Garantia Total</p>
                   <p className="text-sm text-green-200">Risco zero</p>
                 </div>
@@ -559,10 +588,11 @@ function App() {
             <Button 
               onClick={handleCTA}
               size="lg" 
-              className="bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-bold text-xl px-12 py-6 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 mb-6"
+              // CORREÇÃO: Ajustado tamanho do texto e padding para mobile e desktop
+              className="bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-bold text-base sm:text-xl px-8 py-4 sm:px-12 sm:py-6 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 mb-6"
             >
-              <Zap className="mr-3 h-6 w-6" />
-              SIM, QUERO ORGANIZAR MINHAS FINANÇAS EM 7 DIAS
+              <Zap className="mr-2 sm:mr-3 h-5 sm:h-6 w-5 sm:w-6" />
+              SIM, QUERO ORGANIZAR MINHAS FINANÇAS
             </Button>
             
             <p className="text-green-200 text-sm">
@@ -573,13 +603,14 @@ function App() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-white">
+      <section className="py-16 sm:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
             {...fadeInUp}
           >
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            {/* CORREÇÃO: Tamanho de fonte ajustado */}
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
               Perguntas Frequentes
             </h2>
           </motion.div>
@@ -588,101 +619,5 @@ function App() {
             {[
               {
                 pergunta: "Funciona mesmo em 7 dias?",
-                resposta: "Sim! O método foi desenvolvido para dar resultados rápidos. Em 7 dias você terá uma visão completa das suas finanças e um sistema funcionando."
-              },
-              {
-                pergunta: "É muito complicado?",
-                resposta: "Não! O método foi criado justamente para ser simples. Sem planilhas complicadas, sem termos técnicos. Qualquer pessoa consegue aplicar."
-              },
-              {
-                pergunta: "Preciso de conhecimento em finanças?",
-                resposta: "Absolutamente não! O método é para iniciantes. Explicamos tudo passo a passo, de forma simples e clara."
-              },
-              {
-                pergunta: "E se eu não tiver muito dinheiro?",
-                resposta: "O método funciona independente da sua renda. Na verdade, quem tem menos dinheiro é quem mais precisa de organização!"
-              },
-              {
-                pergunta: "Como recebo o material?",
-                resposta: "Após a compra, você recebe acesso imediato ao e-book em PDF no seu email. Pode baixar e começar na mesma hora!"
-              }
-            ].map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-bold text-gray-900 mb-3">{faq.pergunta}</h3>
-                    <p className="text-gray-700">{faq.resposta}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4 text-center">
-          <div className="mb-8">
-            <h3 className="text-2xl font-bold mb-4">Grana Flash</h3>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Transformando vidas através da educação financeira. 
-              Mais de 10.000 pessoas já organizaram suas finanças com nossos métodos.
-            </p>
-            
-            {/* Instagram Link */}
-            <div className="mt-6">
-              <a 
-                href="https://instagram.com/granaflash" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors duration-300"
-              >
-                <Instagram className="h-5 w-5" />
-                <span className="font-semibold">@granaflash</span>
-              </a>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-800 pt-8">
-            <p className="text-gray-400 text-sm">
-              © 2024 Grana Flash. Todos os direitos reservados.
-            </p>
-          </div>
-        </div>
-      </footer>
-
-      {/* Componente de Prova Social Flutuante */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={socialProof.type + socialProof.count}
-          initial={{ opacity: 0, y: 50, scale: 0.8 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -50, scale: 0.8 }}
-          transition={{ duration: 0.5 }}
-          className="fixed bottom-6 left-6 z-50 bg-white border border-green-200 rounded-lg shadow-lg p-4 max-w-xs"
-        >
-          <div className="flex items-center gap-3">
-            <div className={`w-3 h-3 rounded-full ${socialProof.type === 'purchase' ? 'bg-green-500' : 'bg-blue-500'} animate-pulse`}></div>
-            <div>
-              <p className="text-sm font-semibold text-gray-900">
-                {socialProof.count} {socialProof.text}
-              </p>
-              <p className="text-xs text-gray-500">
-                {socialProof.type === 'purchase' ? 'Há poucos minutos' : 'Agora mesmo'}
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      </AnimatePresence>
-    </div>
-  )
-}
-
-export default App
+                resposta: "Sim! O método foi desenvolvido para dar resultados rápidos. Em 7 dias você terá
 
