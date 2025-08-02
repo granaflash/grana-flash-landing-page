@@ -76,7 +76,7 @@ function App() {
               
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
                 Pare de Ver Seu 
-                <span className="text-yellow-400"> Dinheiro Sumir</span> 
+                <span className="text-yellow-400"> Dinheiro Sumir </span> 
                 <br className="hidden sm:block" />
                 Sem Saber Como
               </h1>
