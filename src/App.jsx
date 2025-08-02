@@ -531,7 +531,7 @@ function App() {
               Sua Nova Vida Financeira
               <br className="sm:hidden" />
               {' '}
-              <span className="text-yellow-400">Começa Agora</span>
+              <span className="text-yellow-400"> Começa Agora</span>
             </h2>
             
             <p className="text-lg sm:text-xl lg:text-2xl text-green-100 mb-8 leading-relaxed">
@@ -575,59 +575,6 @@ function App() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="text-center mb-12 sm:mb-16"
-            {...fadeInUp}
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-              Perguntas Frequentes
-            </h2>
-          </motion.div>
-          
-          <div className="max-w-3xl mx-auto space-y-6">
-            {[
-              {
-                pergunta: "Funciona mesmo em 7 dias?",
-                resposta: "Sim! O método foi desenvolvido para dar resultados rápidos. Em 7 dias você terá uma visão completa das suas finanças e um sistema funcionando."
-              },
-              {
-                pergunta: "É muito complicado?",
-                resposta: "Não! O método foi criado justamente para ser simples. Sem planilhas complicadas, sem termos técnicos. Qualquer pessoa consegue aplicar."
-              },
-              {
-                pergunta: "Preciso de conhecimento em finanças?",
-                resposta: "Absolutamente não! O método é para iniciantes. Explicamos tudo passo a passo, de forma simples e clara."
-              },
-              {
-                pergunta: "E se eu não tiver muito dinheiro?",
-                resposta: "O método funciona independente da sua renda. Na verdade, quem tem menos dinheiro é quem mais precisa de organização!"
-              },
-              {
-                pergunta: "Como recebo o material?",
-                resposta: "Após a compra, você recebe acesso imediato ao e-book em PDF no seu email. Pode baixar e começar na mesma hora!"
-              }
-            ].map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-bold text-gray-900 mb-3">{faq.pergunta}</h3>
-                    <p className="text-gray-700">{faq.resposta}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4 text-center">
@@ -663,5 +610,28 @@ function App() {
       <AnimatePresence mode="wait">
         <motion.div
           key={socialProof.type + socialProof.count}
-          initial={{ opacity
+          initial={{ opacity: 0, y: 50, scale: 0.8 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -50, scale: 0.8 }}
+          transition={{ duration: 0.5 }}
+          className="fixed bottom-6 left-6 z-50 bg-white border border-green-200 rounded-lg shadow-lg p-4 max-w-xs"
+        >
+          <div className="flex items-center gap-3">
+            <div className={`w-3 h-3 rounded-full ${socialProof.type === 'purchase' ? 'bg-green-500' : 'bg-blue-500'} animate-pulse`}></div>
+            <div>
+              <p className="text-sm font-semibold text-gray-900">
+                {socialProof.count} {socialProof.text}
+              </p>
+              <p className="text-xs text-gray-500">
+                {socialProof.type === 'purchase' ? 'Há poucos minutos' : 'Agora mesmo'}
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+   )
+}
+
+export default App
 
