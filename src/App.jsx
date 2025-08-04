@@ -64,13 +64,15 @@ function App() {
                 Descubra o método simples que já ajudou milhares de pessoas a organizarem suas finanças em apenas <span className="font-bold text-yellow-600">7 dias</span> - sem planilhas complicadas ou termos técnicos
               </p>
               
-              <Button 
-                size="lg" 
-                className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 sm:py-4 px-6 sm:px-8 text-base sm:text-lg rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center gap-2 sm:gap-3 mx-auto lg:mx-0 leading-tight"
-              >
-                <Zap className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-                <span className="whitespace-nowrap">QUERO ORGANIZAR MINHAS FINANÇAS</span>
-              </Button>
+              <a href="https://pay.hotmart.com/J101079087E" target="_blank" rel="noopener noreferrer">
+                <Button 
+                  size="lg" 
+                  className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 sm:py-4 px-6 sm:px-8 text-base sm:text-lg rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center gap-2 sm:gap-3 mx-auto lg:mx-0 leading-tight"
+                >
+                  <Zap className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+                  <span className="whitespace-nowrap">QUERO ORGANIZAR MINHAS FINANÇAS</span>
+                </Button>
+              </a>
               
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-8 mt-6 sm:mt-8 text-sm sm:text-base">
                 <div className="flex items-center gap-2">
@@ -135,7 +137,7 @@ function App() {
                 title: "Sem controle dos gastos",
                 description: "Não sabe para onde vai o seu dinheiro e vive no vermelho"
               }
-            ].map((problem, index) => (
+            ].map((problem, index ) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -170,63 +172,15 @@ function App() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Button 
-              size="lg" 
-              className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 sm:py-4 px-6 sm:px-8 text-base sm:text-lg rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center gap-2 sm:gap-3 mx-auto leading-tight"
-            >
-              <Target className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-              <span className="whitespace-nowrap">QUERO ORGANIZAR MINHAS FINANÇAS</span>
-            </Button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Seção da Verdade */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gray-900 text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="max-w-4xl mx-auto text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8">
-              A Verdade Que Ninguém Te Conta Sobre Dinheiro
-            </h2>
-            
-            <div className="space-y-4 sm:space-y-6 text-base sm:text-lg lg:text-xl leading-relaxed">
-              <p>
-                O problema não é quanto você ganha. O problema é que <strong>ninguém te ensinou</strong> 
-                como organizar suas finanças de forma simples e prática.
-              </p>
-              
-              <p>
-                Enquanto você continua tentando "se virar" sozinho(a), seu dinheiro continua 
-                sumindo e você fica cada vez mais longe dos seus sonhos.
-              </p>
-              
-              <p className="text-xl sm:text-2xl font-bold text-yellow-400">
-                Mas isso pode mudar hoje.
-              </p>
-            </div>
-
-            {/* CTA 3 - Após Verdade */}
-            <motion.div 
-              className="mt-8 sm:mt-12"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
+            <a href="https://pay.hotmart.com/J101079087E" target="_blank" rel="noopener noreferrer">
               <Button 
                 size="lg" 
                 className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 sm:py-4 px-6 sm:px-8 text-base sm:text-lg rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center gap-2 sm:gap-3 mx-auto leading-tight"
               >
-                <DollarSign className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+                <Target className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
                 <span className="whitespace-nowrap">QUERO ORGANIZAR MINHAS FINANÇAS</span>
               </Button>
-            </motion.div>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -267,7 +221,7 @@ function App() {
                 title: "Garantia Total",
                 subtitle: "Risco zero"
               }
-            ].map((feature, index) => (
+            ].map((feature, index ) => (
               <motion.div
                 key={index}
                 className="text-center"
@@ -288,6 +242,25 @@ function App() {
               </motion.div>
             ))}
           </div>
+
+          {/* CTA 3 - Após Método */}
+          <motion.div 
+            className="text-center mt-8 sm:mt-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <a href="https://pay.hotmart.com/J101079087E" target="_blank" rel="noopener noreferrer">
+              <Button 
+                size="lg" 
+                className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 sm:py-4 px-6 sm:px-8 text-base sm:text-lg rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center gap-2 sm:gap-3 mx-auto leading-tight"
+              >
+                <DollarSign className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+                <span className="whitespace-nowrap">QUERO ORGANIZAR MINHAS FINANÇAS</span>
+              </Button>
+            </a>
+          </motion.div>
         </div>
       </section>
 
@@ -341,7 +314,7 @@ function App() {
                 title: "Paz financeira",
                 description: "Durma tranquilo sabendo que suas finanças estão organizadas"
               }
-            ].map((benefit, index) => (
+            ].map((benefit, index ) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -374,13 +347,15 @@ function App() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Button 
-              size="lg" 
-              className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 sm:py-4 px-6 sm:px-8 text-base sm:text-lg rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center gap-2 sm:gap-3 mx-auto leading-tight"
-            >
-              <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-              <span className="whitespace-nowrap">QUERO ORGANIZAR MINHAS FINANÇAS</span>
-            </Button>
+            <a href="https://pay.hotmart.com/J101079087E" target="_blank" rel="noopener noreferrer">
+              <Button 
+                size="lg" 
+                className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 sm:py-4 px-6 sm:px-8 text-base sm:text-lg rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center gap-2 sm:gap-3 mx-auto leading-tight"
+              >
+                <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+                <span className="whitespace-nowrap">QUERO ORGANIZAR MINHAS FINANÇAS</span>
+              </Button>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -420,7 +395,7 @@ function App() {
                 text: "Nunca pensei que seria tão fácil. Recomendo para todos os meus amigos!",
                 rating: 5
               }
-            ].map((testimonial, index) => (
+            ].map((testimonial, index ) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -460,13 +435,15 @@ function App() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Button 
-              size="lg" 
-              className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 sm:py-4 px-6 sm:px-8 text-base sm:text-lg rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center gap-2 sm:gap-3 mx-auto leading-tight"
-            >
-              <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-              <span className="whitespace-nowrap">QUERO ORGANIZAR MINHAS FINANÇAS</span>
-            </Button>
+            <a href="https://pay.hotmart.com/J101079087E" target="_blank" rel="noopener noreferrer">
+              <Button 
+                size="lg" 
+                className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 sm:py-4 px-6 sm:px-8 text-base sm:text-lg rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center gap-2 sm:gap-3 mx-auto leading-tight"
+              >
+                <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+                <span className="whitespace-nowrap">QUERO ORGANIZAR MINHAS FINANÇAS</span>
+              </Button>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -492,7 +469,7 @@ function App() {
                 </h2>
                 
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-                  Estamos tão confiantes que o método vai funcionar para você que oferecemos <span className="font-bold text-green-600">garantia total</span>. Se em 7 dias você não estiver satisfeito(a) com os resultados, <span className="font-bold text-green-600">devolvemos 100% do seu dinheiro</span>.
+                  Estamos tão confiantes que o método vai funcionar para você que oferecemos <span className="font-bold text-green-600">garantia total</span>. Se em 7 dias você não estiver satisfeito(a ) com os resultados, <span className="font-bold text-green-600">devolvemos 100% do seu dinheiro</span>.
                 </p>
                 
                 <div className="bg-green-50 p-4 sm:p-6 rounded-lg mb-6 sm:mb-8">
@@ -502,42 +479,6 @@ function App() {
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Seção de Urgência */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-red-600 text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="max-w-4xl mx-auto text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8">
-              ⚠️ Atenção: Não Deixe Para Depois
-            </h2>
-            
-            <div className="space-y-4 sm:space-y-6 text-base sm:text-lg lg:text-xl leading-relaxed">
-              <p>
-                Cada dia que passa sem organizar suas finanças é mais dinheiro que você perde.
-              </p>
-              
-              <p>
-                Cada mês que você adia essa decisão é mais longe que você fica dos seus sonhos.
-              </p>
-              
-              <p>
-                <strong>O tempo não para.</strong> E quanto mais você esperar, 
-                mais difícil fica sair do buraco financeiro.
-              </p>
-              
-              <p className="text-2xl font-bold">
-                Não deixe para amanhã o que pode mudar sua vida hoje.
-              </p>
-            </div>
           </motion.div>
         </div>
       </section>
@@ -556,13 +497,15 @@ function App() {
               Comece Sua Transformação Financeira Agora
             </h2>
             
-            <Button 
-              size="lg" 
-              className="bg-green-600 hover:bg-green-700 text-white font-bold py-4 sm:py-6 px-8 sm:px-12 text-lg sm:text-xl rounded-full shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center gap-3 sm:gap-4 mx-auto mb-6 sm:mb-8 leading-tight"
-            >
-              <Zap className="w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0" />
-              <span className="whitespace-nowrap">QUERO ORGANIZAR MINHAS FINANÇAS</span>
-            </Button>
+            <a href="https://pay.hotmart.com/J101079087E" target="_blank" rel="noopener noreferrer">
+              <Button 
+                size="lg" 
+                className="bg-green-600 hover:bg-green-700 text-white font-bold py-4 sm:py-6 px-8 sm:px-12 text-lg sm:text-xl rounded-full shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center gap-3 sm:gap-4 mx-auto mb-6 sm:mb-8 leading-tight"
+              >
+                <Zap className="w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0" />
+                <span className="whitespace-nowrap">QUERO ORGANIZAR MINHAS FINANÇAS</span>
+              </Button>
+            </a>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm sm:text-base text-gray-700">
               <div className="flex items-center gap-2">
